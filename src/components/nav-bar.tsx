@@ -32,7 +32,7 @@ export default function NavBar() {
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
                 <DropdownItem key="new" className="text-purple-300 bg-black">Creează un test</DropdownItem>
-                <DropdownItem key="copy" className="text-purple-300 bg-black">Intră într-un test</DropdownItem>
+                <DropdownItem key="copy" className="bg-black"><Link className="text-purple-300 text-sm" href="/pb1">Intră într-un test</Link></DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </NavbarItem>
