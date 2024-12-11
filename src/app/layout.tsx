@@ -27,7 +27,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const logareMesaj = await login('mail', '234');
 
   return (
     <html lang="en">
@@ -35,7 +34,6 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar/>
-        {logareMesaj}
         {children}
       </body>
     </html>
