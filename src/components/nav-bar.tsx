@@ -12,11 +12,18 @@ import {
   DropdownMenu,
   Avatar,
   Button,
-  Image
+  Image,
+  useDisclosure,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader
 } from '@nextui-org/react';
 
 export default function NavBar() {
   const id = localStorage.getItem('id');
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <Navbar isBordered>
       <NavbarContent justify='start'>
@@ -48,17 +55,42 @@ export default function NavBar() {
                 <p className='text-base font-semibold text-white'>Test</p>
               </DropdownTrigger>
               <DropdownMenu aria-label='Static Actions'>
-                <DropdownItem key='new' className='bg-black text-purple-300'>
-                  Creează un test
+                <DropdownItem key='new' >
+                  <Link className='bg-black text-purple-300' href="/creare-test">Creează un test</Link>
                 </DropdownItem>
-                <DropdownItem key='copy' className='bg-black'>
-                  <Link className='text-sm text-purple-300' href='/pb1'>
+                <DropdownItem key='copy' onPress={onOpen} className='bg-black text-sm text-purple-300'>
                     Intră într-un test
-                  </Link>
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </NavbarItem>
+          <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                    <ModalContent>
+                      {(onClose) => (
+                        <>
+                          <ModalHeader className='flex flex-col gap-1'>
+                            Introdu un cod și intră într-un test
+                          </ModalHeader>
+                          <ModalBody>
+                          <Input placeholder="Introdu codul"/>
+
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button
+                              color='danger'
+                              variant='light'
+                              onPress={onClose}
+                            >
+                              Ieși
+                            </Button>
+                            <Button color='secondary' onPress={onClose}>
+                              Intră în test
+                            </Button>
+                          </ModalFooter>
+                        </>
+                      )}
+                    </ModalContent>
+                  </Modal>
         </NavbarContent>
       </NavbarContent>
 
@@ -114,20 +146,20 @@ export default function NavBar() {
             </DropdownTrigger>
             <DropdownMenu aria-label='Profile Actions' variant='flat'>
               <DropdownItem key='info' className='h-14 gap-2'>
-                <p className='font-semibold text-black'>Signed in as</p>
-                <p className='font-semibold text-black'>
+                <p className='font-semibold '>Signed in as</p>
+                <p className='font-semibold '>
                   alexairinamaria@gmail.com
                 </p>
               </DropdownItem>
-              <DropdownItem key='settings' className='font-semibold text-black'>
+              <DropdownItem key='settings' className='font-semibold '>
                 My Settings
               </DropdownItem>
-              <DropdownItem key='profile' className='font-semibold text-black'>
+              <DropdownItem key='profile' className='font-semibold '>
                 My Profile
               </DropdownItem>
               <DropdownItem
                 key='help_and_feedback'
-                className='font-semibold text-black'
+                className='font-semibold '
               >
                 Help & Feedback
               </DropdownItem>

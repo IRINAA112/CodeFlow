@@ -13,7 +13,7 @@ export default function App() {
         <Problema
           titlu='Suma Gauss'
           cod={12345}
-          link='rezolvare'
+          link='/rezolvare/12345'
           autor='cinevaidk'
           cerinta='Se citește n număr natural. Calculați suma numerelor naturale mai mici sau egale cu n.'
         />
