@@ -4,7 +4,7 @@ import { Textarea, Button } from '@nextui-org/react';
 
 export function AnswerSection() {
   return (
-    <div className='gap-2 pt-4'>
+    <div className='flex flex-col gap-2 pt-4'>
       <h1 className='text-3xl text-purple-200'>Încearcă să rezolvi!</h1>
       <Textarea
         disableAutosize
@@ -12,11 +12,11 @@ export function AnswerSection() {
           input: '!h-full',
           inputWrapper: '!h-[40rem]'
         }}
-        className='!h-[40rem] text-black'
+        className='!h-[40rem] text-white'
         placeholder='Introdu rezolvarea'
         variant='faded'
       />
-      <Button color='secondary' className='w-full'>
+      <Button color='secondary' className='w-full mb-10'>
         Verifică
       </Button>
     </div>

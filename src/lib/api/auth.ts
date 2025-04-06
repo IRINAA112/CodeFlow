@@ -2,11 +2,14 @@
 
 import db from '@default import route/db';
 import { usersTable } from '@default import route/db/schema';
-import { and, eq} from "drizzle-orm"
+import { and, eq } from 'drizzle-orm';
 
 export async function login(email: string, password: string) {
-  const user = await db.select().from(usersTable).where(and(eq(usersTable.email, email), eq(usersTable.password, password)));
-  if(user.length=1){
+  const user = await db
+    .select()
+    .from(usersTable)
+    .where(and(eq(usersTable.email, email), eq(usersTable.password, password)));
+  if ((user.length = 1)) {
     return user[0].id;
   }
   return null;
@@ -23,4 +26,3 @@ export async function register(
     name: username
   });
 }
-
